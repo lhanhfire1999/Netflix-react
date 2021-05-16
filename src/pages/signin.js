@@ -7,6 +7,7 @@ import { FooterContainer } from '../containers/footer';
 import * as ROUTES from '../constants/routes';
 
 export default function SignIn() {
+  const history = useHistory();
   const { firebase } = useContext(FirebaseContext);
 
   const [emailAddress, setEmailAddress] = useState('');
@@ -14,9 +15,21 @@ export default function SignIn() {
   const [error, setError] = useState('');
 
   const isInvalid = password === '' || emailAddress === '';
-  
+
   const handleSignin = (event) => {
     event.preventDefault();
+
+    return firebase
+      .auth()
+      .signInWithEmailAndPassword(emailAddress, password)
+      .then(() => {
+        history.push(ROUTES.BROWSE);
+      })
+      .catch((error) => {
+        setEmailAddress('');
+        setPassword('');
+        setError(error.message);
+      });
   };
 
   return (
