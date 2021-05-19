@@ -9,7 +9,7 @@ export function BrowseContainer({slides}){
   const [searchTerm, setSearchTerm] = useState('');
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
-  
+
   const { firebase } = useContext(FirebaseContext);
   const user = firebase.auth().currentUser || {};
 
@@ -59,6 +59,7 @@ export function BrowseContainer({slides}){
             City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
             futile attempt to feel like he's part of the world around him.
           </Header.Text>
+          <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
     </Header>
     </>

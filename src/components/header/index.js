@@ -84,6 +84,10 @@ Header.TextLink = function HeaderTextLink({ children, ...restProps }) {
   return <Link {...restProps}>{children}</Link>;
 };
 
+Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
+  return <PlayButton {...restProps}>{children}</PlayButton>;
+};
+
 Header.FeatureCallOut = function HeaderFeatureCallOut({ children, ...restProps }) {
   return <FeatureCallOut {...restProps}>{children}</FeatureCallOut>;
 };
