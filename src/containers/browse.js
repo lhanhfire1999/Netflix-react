@@ -14,7 +14,7 @@ export function BrowseContainer({slides}){
 
   const { firebase } = useContext(FirebaseContext);
   const user = firebase.auth().currentUser || {};
-
+  
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -89,7 +89,13 @@ export function BrowseContainer({slides}){
               </Card.Item>
             ))}
           </Card.Entities>
-          
+          <Card.Feature category={category}>
+            {/* <Player>
+              <Player.Button />
+              <Player.Video src="/videos/bunny.mp4" />
+            </Player> */}
+            
+          </Card.Feature>
         </Card>
       ))}
 
